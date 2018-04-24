@@ -1,0 +1,68 @@
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Non-bootstrap content -->
+<link rel="stylesheet" type="text/css" href="{% static 'goodday/style.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption" rel="stylesheet">
+<ul id="menu">
+    <div id="hamburger">☰</div>
+    <div id="fixed-nav">
+        <a href="/goodday/today" class="nav-link">+ New Post</a> |
+        {% if user.is_authenticated %}
+            &#9728; Hello, <a href="#" class="nav-link">{{ user.first_name }}</a> | <a href="/accounts/logout" class="nav-link">Log out</a>
+        {% endif %}
+
+    </div>
+</ul>
+<div class="body-top">
+    <a href="/goodday/today/"><img src="{% static 'goodday/images/logo.svg' %}" alt="Positiv Software Logo" id="logo" class="img-responsive"/></a>
+    <a href="/goodday/today/"><img src="{% static 'goodday/images/logo-small.svg' %}" alt="Positiv Software Logo" id="logo-small" class="img-responsive"/></a>
+</div>
+
+<div class="body-main">
+    <h2>500 Error</h2>
+    Please return to <a href="/goodday/today/" id="yellow-link">home</a>.
+</div>
+<div class="body-bottom">
+</div>
+
+<!-- footer -->
+<div class="body-footer">
+    &#169; Positiv Software 2018
+</div>
+
+
+
+
+
+<script>
+$(document).ready(function(){
+
+	// Hamburger
+	$("#hamburger").click(function(event){
+		$("#menu>div:not(#hamburger)").slideToggle();
+		event.stopPropagation();
+	});
+
+}); // End ready()
+
+
+
+// Show hidden menu on window resize
+$(window).resize(function() {
+	if ($(window).width() >= 800) {
+		$("#menu>div:not(#hamburger)").show();
+	}
+});
+
+</script>

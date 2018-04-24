@@ -1,0 +1,86 @@
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Non-bootstrap content -->
+<link rel="stylesheet" type="text/css" href="{% static 'goodday/style.css' %}" />
+<script src="{% static 'goodday/script.js' %}"></script>
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption" rel="stylesheet">
+
+<!-- Navbar here -->
+
+<!-- Main body section here -->
+
+<ul id="menu">
+    <div id="hamburger">☰</div>
+    <div id="fixed-nav">
+        {% if user.is_authenticated %}
+            <a href="../" class="nav-link">My Posts</a> |
+            &#9728; Hello, <a href="#" class="nav-link">{{ user.first_name }}</a> | <a href="/accounts/logout" class="nav-link">Log out</a>
+        {% endif %}
+
+    </div>
+</ul>
+<div class="body-top">
+    <a href="#"><img src="{% static 'goodday/images/logo.svg' %}" alt="Positiv Software Logo" id="logo" class="img-responsive"/></a>
+    <a href="#"><img src="{% static 'goodday/images/logo-small.svg' %}" alt="Positiv Software Logo" id="logo-small" class="img-responsive"/></a>
+</div>
+<form action="/goodday/today/" method="post">
+    {% csrf_token %}
+    <div class="body-main">
+        <div id="body-main-text">
+            {{ form.response_text.label }}
+        </div>
+        {{ form.response_text }}
+        <button type="submit" value="Submit">Submit</button>
+    </div>
+    <div class="body-bottom">
+
+    </div>
+</form>
+<div class="body-footer">
+    &#169; Positiv Software 2018
+</div>
+
+
+<script>
+function getFocus() {
+    document.getElementById("id_response_text").focus();
+}
+
+function selectFocus() {
+    document.getElementById("id_response_text").select();
+}
+
+getFocus();
+selectFocus();
+
+$(document).ready(function(){
+
+	// Hamburger
+	$("#hamburger").click(function(event){
+		$("#menu>div:not(#hamburger)").slideToggle();
+		event.stopPropagation();
+	});
+
+}); // End ready()
+
+
+
+// Show hidden menu on window resize
+$(window).resize(function() {
+	if ($(window).width() >= 800) {
+		$("#menu>div:not(#hamburger)").show();
+	}
+});
+
+</script>

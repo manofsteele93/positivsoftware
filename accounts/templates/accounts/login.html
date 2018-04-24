@@ -1,0 +1,53 @@
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Non-bootstrap content -->
+<link rel="stylesheet" type="text/css" href="{% static 'goodday/style.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption" rel="stylesheet">
+
+<ul id="menu">
+</ul>
+<div class="body-top">
+    <a href="#"><img src="{% static 'goodday/images/logo.svg' %}" alt="Positiv Software Logo" id="logo" class="img-responsive"/></a>
+    <a href="#"><img src="{% static 'goodday/images/logo-small.svg' %}" alt="Positiv Software Logo" id="logo-small" class="img-responsive"/></a>
+</div>
+<div class="body-main">
+    {% block content %}
+      <h2>Log in</h2>
+      {% if form.errors %}
+        <p style="color: red">Your username and password didn't match. Please try again.</p>
+      {% endif %}
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% for field in form %}
+          <p>
+            {{ field.label_tag }}<br>
+            {{ field }}<br>
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            {% if field.help_text %}
+              <p><small style="color: grey">{{ field.help_text }}</small></p>
+            {% endif %}
+          </p>
+        {% endfor %}
+        <button type="submit">Log in</button> <br/>
+        <p>New to Positiv? <a href="/goodday/signup" id="yellow-link">Sign up</a></p>
+      </form>
+    {% endblock %}
+</div>
+
+<!-- footer -->
+<div class="body-footer">
+    &#169; Positiv Software 2018
+</div>

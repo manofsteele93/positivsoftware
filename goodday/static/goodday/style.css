@@ -1,0 +1,249 @@
+h1{
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+}
+
+body{
+    background-color: #415A77;
+}
+
+button{
+    /* display: block; */
+    text-align: center;
+    margin: 10%;
+    border: 1px solid #415A77;
+    padding: 10px;
+    font-size: 20px;
+    color: #F9C22E;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 10px;
+    background-color: #0D1B2A;
+}
+
+label{
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    font-size: 20px;
+    color: #F9C22E;
+}
+
+input{
+    font-family: 'PT Sans Caption','Jua', sans-serif;
+    font-size: 20px;
+    color: #F9C22E;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #F9C22E;
+}
+
+.body-top{
+    background-color: #0D1B2A;
+    margin: -10px;
+}
+
+.body-main{
+    /* margin-top: 15%; */
+    /* text-align: center; */
+    /* height: 15%; */
+    min-height: 200px;
+    background-color: #415A77;
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    color: #53B3CB;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10%;
+}
+
+.body-main>ul>li{
+    list-style-type: none;
+}
+
+.body-main a{
+    color: #53B3CB;
+}
+
+.signin-main{
+    min-height: 200px;
+    left: 10%;
+    background-color: #415A77;
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    color: #53B3CB;
+    font-size: 20px;
+    font-weight: bold;
+    /* text-align: center; */
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.signin-main button{
+    margin-left: 45%;
+}
+
+.signin-main h2{
+    text-align: center;
+}
+
+.signin-main input{
+    font-size: 20px;
+    width: 70%;
+    background-color: #0D1B2A;
+    border: 1px solid #F9C22E;
+}
+
+.signin-main label{
+    font-size: 16px;
+}
+
+.body-bottom{
+    background-color: #53B3CB;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.body-footer{
+    /* background-color: #1B263B;
+    bottom: 0;
+    padding-bottom: 30%;
+    margin: -10px; */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0D1B2A;
+    color: #F9C22E;
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    padding-top:10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.nav-link{
+    color: #53B3CB;
+}
+
+#account-url{
+    color: #53B3CB;
+}
+
+/* #body-main-text{
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    color: #F9C22E;
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+#logo{
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+#logo-small{
+    width: 50px;
+    /* height: auto;
+    display: block;
+    margin: auto; */
+}
+
+#fixed-nav{
+    position: fixed;
+    color: #F9C22E;
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    margin: 15px;
+    padding: 5px;
+    right: 50px;
+}
+
+#hamburger{
+    position: fixed;
+    color: rgba(249, 194, 46, 1);
+    font-family: 'PT Sans Caption', 'Jua', sans-serif;
+    margin: 15px;
+    padding: 5px;
+    right: 10px;
+}
+
+#id_response_text{
+    font-size: 20px;
+    width: 80%;
+    margin-top: 5%;
+    color: #53B3CB;
+}
+
+#id_response_text:focus{
+    outline: none !important;
+    /* border-bottom: 1px solid #F9C22E; */
+    opacity: 90%;
+    box-shadow: 0 4px 2px -2px #F9C22E;
+}
+
+#yellow-link{
+    color: #F9C22E;
+}
+
+#number-response-selector{
+    border-bottom: 2px solid #F9C22E;
+    color: #F9C22E;
+}
+
+@media screen and (max-width: 850px) {
+
+	#hamburger {
+		display: block;
+	}
+    #id_response_text{
+        font-size: 10px;
+    }
+    #logo{
+        display: none;
+    }
+    #logo-small{
+        width: 80px;
+        height: auto;
+        display: block;
+        /* margin: auto; */
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+	#menu>div:not(#hamburger) {
+		display: none;
+	}
+    button{
+        font-size: 10px;
+    }
+    label{
+        font-size: 10px;
+    }
+    input{
+        font-size: 10px;
+    }
+    .body-main{
+        font-size: 20px;
+    }
+    .body-footer{
+        font-size: 10px;
+    }
+
+    .signin-main input{
+        font-size: 16px;
+        width: 100%;
+        background-color: #0D1B2A;
+        border: 1px solid #F9C22E;
+    }
+
+}
+
+@media screen and (min-width: 850px) {
+
+	#hamburger {
+		display: none;
+	}
+    #logo-small{
+        display: none;
+    }
+	#menu>div:not(#hamburger) {
+		display: block;
+	}
+
+}

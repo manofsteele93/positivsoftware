@@ -1,0 +1,9 @@
+{% if latest_response_list %}
+    <ul>
+    {% for response in latest_response_list %}
+        <li><a href="/goodday/{{ response.id }}/">{{ response.response_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No responses are available.</p>
+{% endif %}
