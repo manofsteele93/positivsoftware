@@ -1,1 +1,1 @@
-web: gunicorn positiv.wsgi
+web: python manage.py runserver
